@@ -10,21 +10,22 @@ php serverside library for vuefinder
         // Set Filesystem Storage
 
         $root_path = Env::get('root_path') . 'public/uploads/';
-
+        
         $adapter = new Local($root_path);
         $storage = new Filesystem($adapter);
-
+        
         // Set VueFinder class
         $vuefinder = new VueFinder($storage);
-
+        
         // http://jwpt.com/uploads/images/2018-12/5c0620eee77ec.jpg
         $config = [
             'publicPaths' => [
-                '指定一个规定目录下文件夹路径' => '替换为domain域名模式,返回url给前端',
-                'image'          => 'http://jwpt.com/uploads/image',
+                '指定一个规定目录下文件夹路径'   => '替换为domain域名模式,返回url给前端',
+                'image'            => 'http://jwpt.com/uploads/image'
             ],
+            'deal_file_suffix' => 'png,jpg,gif,jpeg', // 只准文件上传和修改的文件名后缀，其他不允许
         ];
-
+        
         // Perform the class
         $vuefinder->init($config);
 
