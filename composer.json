@@ -1,5 +1,5 @@
 {
-  "name": "ozdemir/vuefinder-php",
+  "name": "jiuwuxiaohun/vuefinder-php",
   "description": "Vuefinder Php Library.",
   "license": "MIT",
   "config": {
@@ -7,8 +7,8 @@
   },
   "authors": [
     {
-      "name": "Yusuf Özdemir",
-      "email": "yusuf@ozdemir.be"
+      "name": "玖伍小魂",
+      "email": "mail@95jw.cn"
     }
   ],
   "autoload": {

@@ -34,7 +34,7 @@ php serverside library for vuefinder
 
 ## Installation 
 ```
-composer require ozdemir/vuefinder-php
+composer require jiuwuxiaohun/vuefinder-php
 ```
 ## Usage
 ```php
@@ -52,3 +52,4 @@ $vuefinder = new VueFinder($storage);
 // Perform the class
 $vuefinder->init();
 ```
+本项目基于https://packagist.org/packages/ozdemir/vuefinder-php
