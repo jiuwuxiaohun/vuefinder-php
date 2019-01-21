@@ -35,7 +35,19 @@ php serverside library for vuefinder
 ## Installation 
 ```
 composer require jiuwuxiaohun/vuefinder-php
+
+Maybe you need to:
+
+composer require jiuwuxiaohun/vuefinder-php --prefer-source
+
 ```
+### Unstall
+```
+composer remove jiuwuxiaohun/vuefinder-php
+```
+
+
+
 ## Usage
 ```php
 use Ozdemir\Vuefinder\Vuefinder;
