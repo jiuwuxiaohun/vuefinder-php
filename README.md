@@ -34,11 +34,7 @@ php serverside library for vuefinder
 
 ## Installation 
 ```
-composer require jiuwuxiaohun/vuefinder-php
-
-Maybe you need to:
-
-composer require jiuwuxiaohun/vuefinder-php --prefer-source
+composer require jiuwuxiaohun/vuefinder-php dev-master
 
 ```
 ### Unstall
