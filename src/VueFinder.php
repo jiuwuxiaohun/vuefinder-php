@@ -57,6 +57,10 @@ class VueFinder
             $config['deal_file_suffix'] = 'png,jpg,gif,jpeg';
         }
         
+        if (!array_key_exists('upload_max_kb_file_size', $config)) {
+            $config['upload_max_kb_file_size'] = 1024 * 2;//上传文件限制=默认2MB
+        }
+        
         $this->config = $config;
         $query        = $this->request->get('q');
         $route_array  = ['index', 'newfolder', 'read', 'download', 'rename', 'delete', 'upload'];
@@ -148,16 +152,22 @@ class VueFinder
      */
     public function upload()
     {
-        $path          = $this->request->get('path');
-        $file          = $this->request->files->get('file');
-        $file_suffix   = $file->getClientOriginalExtension(); //文件的扩展名
-        $config_suffix = $this->config['deal_file_suffix'];
+        $path                 = $this->request->get('path');
+        $file                 = $this->request->files->get('file');
+        $file_suffix          = $file->getClientOriginalExtension(); //文件的扩展名
+        $config_suffix        = $this->config['deal_file_suffix'];
+        $config_upload_max_kb = $this->config['upload_max_kb_file_size'];
         
         if (isset($config_suffix)) {
             $up_file_suffix = explode(',', $config_suffix);
             if (!in_array(strtolower($file_suffix), $up_file_suffix)) {
                 throw new \Exception($file_suffix . ' 文件不允许上传.');
             }
+        }
+        
+        $now_file_size = $file->getSize() / 1024;
+        if ($now_file_size > $config_upload_max_kb) {
+            throw new \Exception('文件大小超过了' . $config_upload_max_kb . 'kb,不允许上传!');
         }
         
         $stream = fopen($file->getRealPath(), 'r+');
