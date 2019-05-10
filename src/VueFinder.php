@@ -217,7 +217,7 @@ class VueFinder
     {
         $from = $this->request->get('from');
         $to   = $this->request->get('to');
-        
+    
         if (!strpbrk($to, "\\/?%*:|\"<>") === false) {
             throw new \Exception('文件名无效.');
         }
