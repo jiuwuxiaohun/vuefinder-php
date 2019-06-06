@@ -94,11 +94,11 @@ class VueFinder
      */
     public function index()
     {
+        
         $root    = '.';
         $dirname = $this->request->get('path') ?? $root;
         $parent  = \dirname($dirname);
         $types   = $this->typeMap();
-        
         
         $listcontent = $this->storage->listContents($dirname);
         
@@ -127,7 +127,6 @@ class VueFinder
             
             return $node;
         }, $files);
-        
         return new JsonResponse(compact('root', 'parent', 'dirname', 'files'));
     }
     
